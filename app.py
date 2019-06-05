@@ -12,7 +12,17 @@ def gravar(v1, v2, v3):
     ficheiro.commit()
     ficheiro.close()
 
-@app.route('/registo', methods=['GET', 'POST'])
+def existe(v1):
+    import sqlite3
+    ficheiro = sqlite3.connect('db/Utilizadores.db')
+    db = ficheiro.cursor()
+    db.execute("SELECT * FROM usr WHERE nome= ?", (v1,))
+    valor = db.fetchone()
+    ficheiro.close()
+    return valor
+
+
+@app.route('/', methods=['GET', 'POST'])
 def route():
     erro = None
     if request.method == 'POST':
@@ -20,7 +30,9 @@ def route():
         v2 = request.form['email']
         v3 = request.form['passe']
         v4 = request.form['cpasse']
-        if v3 != v4:
+        if existe(v1):
+            erro = 'O utilizador já existe'
+        elif v3 != v4:
             erro = 'A palavra passe não coincide.'
         else:
             gravar(v1, v2, v3)
@@ -35,7 +47,7 @@ def alterar(v1, v2):
     ficheiro.commit()
     ficheiro.close()
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/newpasse', methods=['GET', 'POST'])
 def npasse():
     erro = None
     if request.method == 'POST':
