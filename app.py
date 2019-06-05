@@ -21,8 +21,32 @@ def existe(v1):
     ficheiro.close()
     return valor
 
+#////////////////////NÃO FUNCIONA////////////////////NÃO FUNCIONA////////////////////NÃO FUNCIONA////////////////////
+def login(v1, v3):
+    import sqlite3
+    ficheiro = sqlite3.connect('db/Utilizadores.db')
+    db = ficheiro.cursor()
+    db.execute("SELECT * FROM usr WHERE nome= ? AND password= ? ", (v1, v3))
+    valor = db.fetchmany(v1, v3)
+    ficheiro.close()
+    return valor
+#////////////////////NÃO FUNCIONA////////////////////NÃO FUNCIONA////////////////////NÃO FUNCIONA////////////////////
 
-@app.route('/', methods=['GET', 'POST'])
+#////////////////////NÃO FUNCIONA////////////////////NÃO FUNCIONA////////////////////NÃO FUNCIONA////////////////////
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    erro = None
+    if request.method == 'POST':
+        v1 = request.form['utilizador']
+        v3 = request.form['passe']
+        if not existe(v1):
+            erro = 'O utilizador não existe'
+        elif not login(v1, v3):
+            erro = 'O utilizador e a palavra passe não coincidem'
+    return render_template('login.html', erro=erro)
+#////////////////////NÃO FUNCIONA////////////////////NÃO FUNCIONA////////////////////NÃO FUNCIONA////////////////////
+
+@app.route('/registo', methods=['GET', 'POST'])
 def route():
     erro = None
     if request.method == 'POST':
@@ -47,13 +71,15 @@ def alterar(v1, v2):
     ficheiro.commit()
     ficheiro.close()
 
-@app.route('/newpasse', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def npasse():
     erro = None
     if request.method == 'POST':
         v1 = request.form['utilizador']
         v2 = request.form['passe']
         v3 = request.form['cpasse']
+        if not existe(v1):
+            erro = 'O utilizador não existe'
         if v2 != v3:
             erro = 'A palavra passe não coincide.'
         else:
