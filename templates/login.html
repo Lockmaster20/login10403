@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
+{% extends 'layout.html' %}
+{% block titulo %}
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="/static/style.css">
-</head>
-<body>
+{% endblock %}
+
+{% block conteudo %}
 
 <h1>Iniciar Sessão</h1>
 
@@ -16,6 +14,8 @@
         <input type="text" name="utilizador" required>
         <h4>Palavra-Passe</h4>
         <input type="password" name="passe" required>
+        <br>
+        <a href="/newpasse"></i> Mudar Palavra-Passe</a>
         <p><br></p>
         <input type="submit" name="entrar" required>
     </form>
@@ -25,5 +25,4 @@
 <h8>{{ erro }}</h8>
 {% endif %}
 
-</body>
-</html>
+{% endblock %}

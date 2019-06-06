@@ -3,6 +3,10 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 def gravar(v1, v2, v3):
     import sqlite3
     ficheiro = sqlite3.connect('db/Utilizadores.db')
@@ -69,7 +73,7 @@ def alterar(v1, v2):
     ficheiro.commit()
     ficheiro.close()
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/newpasse', methods=['GET', 'POST'])
 def npasse():
     erro = None
     if request.method == 'POST':

@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <title>Registo</title>
-    <link rel="stylesheet" type="text/css" href="/static/style.css">
-</head>
-<body>
+{% extends 'layout.html' %}
+{% block titulo %}
+    <title>Nova Passe</title>
+{% endblock %}
+
+{% block conteudo %}
 
 <h1>Alterar a Password</h1>
 
@@ -27,5 +25,4 @@
 <h8>{{ erro }}</h8>
 {% endif %}
 
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+
+    {% block titulo %}
+    {% endblock %}
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+
+</head>
+<body>
+
+<!-- The navigation menu -->
+<div class="navbar">
+  <a href="/">Home</a>
+  <div class="subnav">
+    <button class="subnavbtn"> 1 <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a href="/">1.1</a>
+      <a href="/">1.2</a>
+    </div>
+  </div>
+  <div class="subnav">
+    <button class="subnavbtn"> 2 <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a href="/">2.1</a>
+      <a href="/">2.2</a>
+    </div>
+  </div>
+  <div class="subnav">
+    <button class="subnavbtn"> 3 <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a href="/">3.1</a>
+      <a href="/">3.2</a>
+    </div>
+  </div>
+  <div class="navbarr">
+    <a href="/login"><i class="fas fa-unlock-alt"></i> Login</a>
+    <a href="/registo"><i class="fas fa-user-alt"></i> Registar</a>
+  </div>
+</div>
+
+
+<div class="page-wrap">
+{% block conteudo %}
+{% endblock %}
+</div>
+
+<footer class="sitefooter">
+  <div class="column" style="background-color:#2aa021;">
+    <h1>Texto</h1>
+    <p>Hambúrguers com 100% carne de vaca.</p>
+    <p>Todas as sandes são preparadas a pedido.</p>
+    <p>Alguns dos produtos contêm alergénicos.</p>
+  </div>
+  <div class="column" style="background-color:#2aa021;">
+    <h1>Links</h1>
+    <br>
+    <a href="/carreiras">Carreiras</a>
+  </div>
+  <div class="column" style="background-color:#2aa021;">
+    <br><br>
+    <h2>&copy; Copyright 2019 Diogo Fernandes</h2>
+  </div>
+</footer>
+
+
+</body>
+</html>
