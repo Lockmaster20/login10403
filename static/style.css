@@ -116,12 +116,12 @@ fieldset {
   float: left;
   width: 31.7%;
   padding: 10px;
-  height: 205px;
+  height: 190px;
   }
 .page-wrap {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -135px;
+  margin-bottom: -120px;
 }
 .page-wrap:after {
   content: "";
