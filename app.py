@@ -3,17 +3,17 @@ import psycopg2
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+#Base de Dados Início
 def herokudb():
     Host='ec2-54-75-235-28.eu-west-1.compute.amazonaws.com'
     Database='d2g7rqemchqt6o'
     User='xgssvwgmdlwadz'
     Password='83903b481d14d35e2c52100414d54b0def77b4ee05adc41b43e8a0ef0996a958'
     return psycopg2.connect(host=Host, database=Database, user=User, password=Password, sslmode='require')
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
 def existe(v1):
     try:
         ficheiro = herokudb()
@@ -115,6 +115,8 @@ def delete():
             apagar(v1)
             erro = 'Utilizador eliminado.'
     return render_template('delete.html', erro=erro)
+
+#Base de Dados Fim
 
 if __name__ == ('__main__'):
     app.run(debug=True)
