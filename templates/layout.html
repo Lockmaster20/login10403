@@ -6,68 +6,100 @@
     {% block titulo %}
     {% endblock %}
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/style.css">
+<style>
+
+body {
+  background-image: url('static/desert.png');
+  background-size: 134%, 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  border-radius: 25px;
+  position: absolute;
+     top: 5px;
+     left: 25%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  font-family: Consolas;
+  color: white;
+  text-align: center;
+  padding: 20px 58px;
+  text-decoration: none;
+  border-radius: 25px;
+}
+
+li a:hover {
+  background-color: #aba81b;
+}
+
+ul2 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  border-radius: 25px;
+  position: absolute;
+     top: 93%;
+}
+
+li2 {
+  float: left;
+}
+
+li2 a {
+  display: block;
+  font-family: Consolas;
+  color: white;
+  text-align: center;
+  padding: 20px 58px;
+  text-decoration: none;
+  border-radius: 25px;
+}
+
+li2 a:hover {
+  background-color: #aba81b;
+}
+
+</style>
 
 </head>
 <body>
 
-<!-- The navigation menu -->
-<div class="navbar">
-  <a href="/">Home</a>
-  <div class="subnav">
-    <button class="subnavbtn"> 1 <i class="fa fa-caret-down"></i></button>
-    <div class="subnav-content">
-      <a href="/">1.1</a>
-      <a href="/">1.2</a>
-    </div>
-  </div>
-  <div class="subnav">
-    <button class="subnavbtn"> 2 <i class="fa fa-caret-down"></i></button>
-    <div class="subnav-content">
-      <a href="/">2.1</a>
-      <a href="/">2.2</a>
-    </div>
-  </div>
-  <div class="subnav">
-    <button class="subnavbtn"> 3 <i class="fa fa-caret-down"></i></button>
-    <div class="subnav-content">
-      <a href="/">3.1</a>
-      <a href="/">3.2</a>
-    </div>
-  </div>
-  <div class="navbarr">
-    <a href="/login"><i class="fas fa-unlock-alt"></i> Login</a>
-    <a href="/registo"><i class="fas fa-user-alt"></i> Registar</a>
-    <a href="/delete"><i class="fas fa-trash-alt"></i> Apagar Conta</a>
-  </div>
-</div>
+<ul>
+  <li><a class="active" href="/">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
 
+<br><br><br>
 
 <div class="page-wrap">
 {% block conteudo %}
 {% endblock %}
 </div>
 
-<footer class="sitefooter">
-  <div class="column" style="background-color:#2aa021;">
-    <h1>Exemplo Título</h1>
-    <p>Exemplo Texto.</p>
-    <p>Exemplo Texto.</p>
-    <p>Exemplo Texto.</p>
-  </div>
-  <div class="column" style="background-color:#2aa021;">
-    <h1>Links</h1>
-    <br>
-    <a href="/link">Exemplo Link</a>
-  </div>
-  <div class="column" style="background-color:#2aa021;">
-    <br><br>
-    <h2>&copy; Copyright 2019 Diogo Fernandes</h2>
-  </div>
-</footer>
-
+<ul2>
+  <li2><a class="active" href="/">Home</a></li2>
+  <li2><a href="#news">News</a></li2>
+  <li2><a href="#contact">Contact</a></li2>
+  <li2><a href="/about">About</a></li2>
+</ul2>
 
 </body>
 </html>
